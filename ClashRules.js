@@ -1,18 +1,3 @@
-// 国内DNS服务器
-const domesticNameservers = [
-    "https://dns.alidns.com/dns-query", // 阿里云公共DNS
-    "https://doh.pub/dns-query", // 腾讯DNSPod
-    "https://doh.360.cn/dns-query" // 360安全DNS
-];
-// 国外DNS服务器
-const foreignNameservers = [
-    "https://1.1.1.1/dns-query", // Cloudflare(主)
-    "https://1.0.0.1/dns-query", // Cloudflare(备)
-    "https://208.67.222.222/dns-query", // OpenDNS(主)
-    "https://208.67.220.220/dns-query", // OpenDNS(备)
-    "https://194.242.2.2/dns-query", // Mullvad(主)
-    "https://194.242.2.3/dns-query" // Mullvad(备)
-];
 // DNS配置
 const dnsConfig = {
     "enable": true,
@@ -35,13 +20,7 @@ const dnsConfig = {
         // 微信快速登录检测失败
         "localhost.work.weixin.qq.com"
     ],
-    "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
-    "nameserver": [...domesticNameservers, ...foreignNameservers],
-    "proxy-server-nameserver": [...domesticNameservers, ...foreignNameservers],
-    "nameserver-policy": {
-        "geosite:private,cn,geolocation-cn": domesticNameservers,
-        "geosite:google,youtube,telegram,gfw,geolocation-!cn": foreignNameservers
-    }
+    "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"]
 };
 // 规则集通用配置
 const ruleProviderCommon = {
